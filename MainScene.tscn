@@ -21,6 +21,7 @@ shape = SubResource( 1 )
 position = Vector2( 43, -29 )
 node_a = NodePath("..")
 node_b = NodePath("../../RigidBody2D2")
+softness = 2.0
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="."]
 position = Vector2( 321, 198 )
@@ -29,6 +30,7 @@ position = Vector2( 321, 198 )
 position = Vector2( -45, 28 )
 node_a = NodePath("..")
 node_b = NodePath("../../RigidBody2D")
+softness = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
 shape = SubResource( 2 )
