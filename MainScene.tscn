@@ -1,3 +1,40 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40, 40 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40, 40 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 135, 18 )
 
 [node name="MainScene" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 231, 198 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 1 )
+
+[node name="GrooveJoint2D" type="PinJoint2D" parent="RigidBody2D"]
+position = Vector2( 43, -29 )
+node_a = NodePath("..")
+node_b = NodePath("../../RigidBody2D2")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2( 321, 198 )
+
+[node name="GrooveJoint2D2" type="PinJoint2D" parent="RigidBody2D2"]
+position = Vector2( -45, 28 )
+node_a = NodePath("..")
+node_b = NodePath("../../RigidBody2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 431, 448 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 3 )
