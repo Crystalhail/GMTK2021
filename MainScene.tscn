@@ -25,7 +25,7 @@ node_b = NodePath("../../RigidBody2D2")
 [node name="RigidBody2D2" type="RigidBody2D" parent="."]
 position = Vector2( 321, 198 )
 
-[node name="GrooveJoint2D2" type="PinJoint2D" parent="RigidBody2D2"]
+[node name="GrooveJoint2D" type="PinJoint2D" parent="RigidBody2D2"]
 position = Vector2( -45, 28 )
 node_a = NodePath("..")
 node_b = NodePath("../../RigidBody2D")
