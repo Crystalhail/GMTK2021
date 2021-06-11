@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
+[ext_resource path="res://Images/branch45.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 40 )
@@ -43,6 +44,15 @@ position = Vector2( 431, 448 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 3 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 484, 116, 623, 245, 857, 85, 564, 24, 449.739, 86.7006 )
+width = 40.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 2 )
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=[
 "glueable",
