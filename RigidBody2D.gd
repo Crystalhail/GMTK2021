@@ -49,22 +49,25 @@ var dragging = false
 var dragorigin = true
 
 func _process(delta):
-	if !Input.is_action_pressed("MouseDown"):
-		self.dragging=false
-		Global.dragging_something=false
-	if Input.is_action_just_pressed("MouseDown"):
-		if !Global.dragging_something:
-			if hover:
-#				print("md!")
-				Global.dragging_something = true
-				self.dragorigin=get_local_mouse_position()
-				self.dragging = true
-	if self.dragging:
-		self.mode=RigidBody2D.MODE_KINEMATIC
-		var mv : Vector2 = get_local_mouse_position()-dragorigin
-		if mv.length()>20*60*delta:
-			mv=mv.normalized()*20*60*delta
-		self.position+=mv
+	if !Global.play_mode:
+		if !Input.is_action_pressed("MouseDown"):
+			self.dragging=false
+			Global.dragging_something=false
+		if Input.is_action_just_pressed("MouseDown"):
+			if !Global.dragging_something:
+				if hover:
+	#				print("md!")
+					Global.dragging_something = true
+					self.dragorigin=get_local_mouse_position()
+					self.dragging = true
+		if self.dragging:
+			self.mode=RigidBody2D.MODE_KINEMATIC
+			var mv : Vector2 = get_local_mouse_position()-dragorigin
+			if mv.length()>20*60*delta:
+				mv=mv.normalized()*20*60*delta
+			self.position+=mv
+		else:
+			self.mode=RigidBody2D.MODE_RIGID
 	else:
 		self.mode=RigidBody2D.MODE_RIGID
 
