@@ -1,5 +1,7 @@
 extends Node2D
 
+var boulderCount = 0
+
 class lineSort:
 	static func v2i(vcs):
 		var v1 = vcs[0]
@@ -70,8 +72,9 @@ func detect_position_overlaps():
 	
 	
 func _ready():
-	pass
-	
+	boulderCount = len(get_tree().get_nodes_in_group("Boulder"))
+	for goal in get_tree().get_nodes_in_group("GoalPost"):
+		goal.connect("body_entered",self,"goal_body_entered",[goal])
 
 func _process(delta):
 	detect_position_overlaps()
@@ -95,3 +98,23 @@ func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2):
 	pj2.node_a = pj2.get_path_to(obj2)
 	pj2.node_b = pj2.get_path_to(obj1)
 	pj2.global_position=point2
+
+func goal_body_entered(boulder,goal):
+	#boulder = boulder.get_parent()
+	print(boulder.name)
+	if boulder.is_in_group("Boulder"):
+		boulder.gravity_scale = 0
+		boulder.linear_velocity = Vector2.ZERO
+		boulder.collision_layer = 0
+		boulder.collision_mask = 0
+		$Tween.interpolate_property(boulder,"position",null,goal.position,0.4,Tween.TRANS_CIRC,Tween.EASE_OUT)
+		$Tween.interpolate_property(boulder,"scale",null,Vector2.ZERO,0.4,Tween.TRANS_CIRC,Tween.EASE_OUT)
+		$Tween.interpolate_property(boulder,"modulate:a",null,0,0.4,Tween.TRANS_CIRC,Tween.EASE_OUT)
+		$Tween.start()
+		boulderCount -= 1
+
+
+func _on_Tween_tween_completed(object, key):
+	if object.is_in_group("Boulder"):
+		if key == ":modulate:a":
+			object.queue_free()
