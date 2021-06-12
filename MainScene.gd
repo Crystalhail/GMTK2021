@@ -46,12 +46,37 @@ func detect_position_overlaps():
 	for g in glueables:
 		get_children()[-1].points = PoolVector2Array([g[0][0][0], g[0][0][1]])
 		add_child(get_children()[-1].duplicate())
+	return glueables
 	
 	
 	
 func _ready():
 	detect_position_overlaps()
+	
 
 func _process(delta):
 	if Input.is_action_just_pressed("Retry"):
 		get_tree().reload_current_scene()
+
+func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2):
+	var pj1 = PinJoint2D.new()
+	pj1.softness=2
+	pj1.node_a = obj1
+	pj1.node_b = obj2
+	obj1.add_child(pj1)
+	var pj2 = PinJoint2D.new()
+	pj2.softness=2
+	pj2.node_a = obj2
+	pj2.node_b = obj1
+	obj2.add_child(pj2)
+
+
+
+
+
+
+
+
+
+
+
