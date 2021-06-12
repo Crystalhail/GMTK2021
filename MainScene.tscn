@@ -1,11 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
-<<<<<<< HEAD
 [ext_resource path="res://Images/branch45.png" type="Texture" id=2]
-=======
-[ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
->>>>>>> glue_work
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 40 )
@@ -64,6 +60,3 @@ end_cap_mode = 2
 position = Vector2( 104.77, 25.4846 )
 build_mode = 1
 polygon = PoolVector2Array( 60.1201, 17.398, 33.2197, 108.482, -0.759777, 65.5356, 22.3651, 26.8368 )
-
-[node name="RigidBody2D3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 418, 20 )
