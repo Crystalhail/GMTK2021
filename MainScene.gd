@@ -28,8 +28,17 @@ func detect_position_overlaps():
 						var firstA = Array(reference_copy[first]).find(cur)
 						var second = reference_copy.find(o)
 						var secondA = Array(reference_copy[second]).find(e)
-						results.append([first,firstA,second,secondA])
+						results.append([first,firstA,glueable[first].polygon[firstA]])
+						results.append([second,secondA,glueable[second].polygon[secondA]])
 		objects_points.append(current)
+	
+	# So now we have an array, results, containing points that touch, including duplicates.
+	# The first two array elements are references that can be traced back to get the rididbody,
+	# the third element is the Vector2 itself.
+	
+	# We need to test these Vector2's against each other and find out what series of Vector2's
+	# are sides that touch each other. IDK man.
+	
 	
 	
 
