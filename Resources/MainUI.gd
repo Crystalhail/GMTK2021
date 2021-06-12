@@ -37,6 +37,8 @@ func _on_StartButton_pressed():
 	$Tween.interpolate_property($Main,"rect_global_position:x",0,-1024,0.7,Tween.TRANS_CIRC,Tween.EASE_OUT)
 	$Tween.interpolate_property($Levels,"rect_global_position:x",1024,0,0.7,Tween.TRANS_CIRC,Tween.EASE_OUT)
 	$Tween.start()
+	for b in $Levels/Levelgrid.get_children():
+		b.mouse_filter = 2
 
 func Levels_Go_Back():
 	$Tween.stop($NinePatchRect)
@@ -46,6 +48,8 @@ func Levels_Go_Back():
 	$Tween.interpolate_property($Main,"rect_global_position:x",-1024,0,0.7,Tween.TRANS_CIRC,Tween.EASE_OUT)
 	$Tween.interpolate_property($Levels,"rect_global_position:x",0,1024,0.7,Tween.TRANS_CIRC,Tween.EASE_OUT)
 	$Tween.start()
+	for b in $Levels/Levelgrid.get_children():
+		b.mouse_filter = 2
 	
 func play_level(n):
 	pass
@@ -53,3 +57,9 @@ func play_level(n):
 
 func ExitButtonPressed():
 	get_tree().quit()
+
+
+func _on_Tween_tween_completed(object, key):
+	if object == $Levels and key == ":rect_global_position:x":
+		for b in $Levels/Levelgrid.get_children():
+			b.mouse_filter = 0
