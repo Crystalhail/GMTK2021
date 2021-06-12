@@ -63,11 +63,13 @@ func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2):
 	pj1.softness=2
 	pj1.node_a = obj1
 	pj1.node_b = obj2
+	pj1.global_position=point1
 	obj1.add_child(pj1)
 	var pj2 = PinJoint2D.new()
 	pj2.softness=2
 	pj2.node_a = obj2
 	pj2.node_b = obj1
+	pj2.global_position=point2
 	obj2.add_child(pj2)
 
 
