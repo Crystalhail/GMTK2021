@@ -46,6 +46,7 @@ func detect_position_overlaps():
 	for g in glueables:
 		get_children()[-1].points = PoolVector2Array([g[0][0][0], g[0][0][1]])
 		add_child(get_children()[-1].duplicate())
+	return glueables
 	
 	
 func _ready():
