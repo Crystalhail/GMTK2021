@@ -19,8 +19,9 @@ func prepare_glue_button(vectors,buttonNode):
 	var center = (vectors[0] + vectors[1])/2
 	var width = vectors[0].distance_to(vectors[1])
 	buttonNode.rect_size.x = width
-	buttonNode.rect_pivot_offset = buttonNode.rect_size/2
-	buttonNode.rect_global_position = center
+	var localcenter = buttonNode.rect_size/2
+	buttonNode.rect_pivot_offset = localcenter
+	buttonNode.rect_global_position = center-localcenter
 	buttonNode.rect_rotation = rad2deg(vectors[0].angle_to_point(vectors[1]))
 	
 
