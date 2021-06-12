@@ -101,7 +101,7 @@ func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2):
 
 func goal_body_entered(boulder,goal):
 	#boulder = boulder.get_parent()
-	print(boulder.name)
+#	print(boulder.name)
 	if boulder.is_in_group("Boulder"):
 		boulder.gravity_scale = 0
 		boulder.linear_velocity = Vector2.ZERO

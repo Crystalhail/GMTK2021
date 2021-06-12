@@ -55,7 +55,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("MouseDown"):
 		if !Global.dragging_something:
 			if hover:
-				print("md!")
+#				print("md!")
 				Global.dragging_something = true
 				self.dragorigin=get_local_mouse_position()
 				self.dragging = true
@@ -69,6 +69,6 @@ var hover = false
 
 func _on_RigidBody2D_mouse_entered():
 	hover = true
-	print("hov")
+#	print("hov")
 func _on_RigidBody2D_mouse_exited():
 	hover = false
