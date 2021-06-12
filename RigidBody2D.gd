@@ -8,7 +8,7 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var shape = get_children()[1]
+	var shape = $Template
 	set_shape(shape.polygon)
 	$Template.modulate.a = 0 
 
@@ -40,5 +40,7 @@ func set_shape(shape):
 	var so = create_shape_owner(self)
 	shape_owner_add_shape(so,s)
 	global_position = $Template.global_position
-	
+	shape.append(shape[0])
+	$Line2D.points = shape
+	$Line2D.position -= Vector2(width,height)/2
 	

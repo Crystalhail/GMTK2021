@@ -65,4 +65,12 @@ func _on_Tween_tween_completed(object, key):
 			b.mouse_filter = 0
 
 func Credits_GoBack():
-	pass # Replace with function body.
+	$Tween.interpolate_property($Main,"rect_global_position:x",-1024,0,0.7,Tween.TRANS_CIRC,Tween.EASE_OUT)
+	$Tween.interpolate_property($Credits,"rect_global_position:x",0,1024,0.7,Tween.TRANS_CIRC,Tween.EASE_OUT)
+	$Tween.start()
+
+
+func _on_Credits_pressed():
+	$Tween.interpolate_property($Main,"rect_global_position:x",0,-1024,0.7,Tween.TRANS_CIRC,Tween.EASE_OUT)
+	$Tween.interpolate_property($Credits,"rect_global_position:x",1024,0,0.7,Tween.TRANS_CIRC,Tween.EASE_OUT)
+	$Tween.start()
