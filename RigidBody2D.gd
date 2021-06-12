@@ -26,7 +26,7 @@ func set_shape(shape):
 		maxy = max(i.y,maxy)
 	var width = maxx-minx
 	var height = maxy-miny
-	print(Vector2(width,height))
+#	print(Vector2(width,height))
 	var off = Vector2(width,height)*0.05 #0.05 is half of 1-0.9
 	for i in range(len(shape)):
 		smallerShape[i] *= 0.9
