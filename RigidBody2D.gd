@@ -61,7 +61,10 @@ func _process(delta):
 				self.dragging = true
 	if self.dragging:
 		self.mode=RigidBody2D.MODE_KINEMATIC
-		self.position+=get_local_mouse_position()-dragorigin
+		var mv : Vector2 = get_local_mouse_position()-dragorigin
+		if mv.length()>20*60*delta:
+			mv=mv.normalized()*20*60*delta
+		self.position+=mv
 	else:
 		self.mode=RigidBody2D.MODE_RIGID
 
