@@ -37,4 +37,5 @@ func _ready():
 	detect_position_overlaps()
 
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("Retry"):
+		get_tree().reload_current_scene()
