@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Images/branch45.png" type="Texture" id=3]
 [ext_resource path="res://Images/highlighter.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 40 )
@@ -98,3 +99,6 @@ polygon = PoolVector2Array( 277.828, -95.3552, 163.956, -111.837, 187.18, -24.18
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
+
+[node name="Boulder" parent="." instance=ExtResource( 5 )]
+position = Vector2( 383.526, 66.7462 )
