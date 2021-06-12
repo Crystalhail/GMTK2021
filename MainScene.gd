@@ -21,7 +21,7 @@ func prepare_glue_button(vectors,buttonNode):
 	buttonNode.rect_size.x = width
 	buttonNode.rect_pivot_offset = buttonNode.rect_size/2
 	buttonNode.rect_global_position = center
-	buttonNode.rect_rotation = rad2deg(vectors[0].angle_to(vectors[1]))
+	buttonNode.rect_rotation = rad2deg(vectors[0].angle_to_point(vectors[1]))
 	
 
 func sort_two_points(p1,p2):
