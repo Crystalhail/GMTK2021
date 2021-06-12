@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Images/log.png" type="Texture" id=3]
 [ext_resource path="res://Images/highlighter.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
@@ -12,10 +13,10 @@ extents = Vector2( 40, 40 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 40, 40 )
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 190.408, 18 )
-
 [sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 185, 18 )
+
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 129.184, 18 )
 
 [node name="MainScene" type="Node2D"]
@@ -60,8 +61,58 @@ position = Vector2( 431, 448 )
 position = Vector2( 488, 447 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2( 246.355, 98.2213 )
-shape = SubResource( 4 )
+position = Vector2( 241.355, 98.221 )
+shape = SubResource( 3 )
+
+[node name="log" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 75.0728, 97.9063 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log2" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 112.373, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log3" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 149.496, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log4" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 186.795, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log5" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 224.095, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log6" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 261.218, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log7" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 298, 98.221 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log8" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 335.123, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log9" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 372.246, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log10" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 409.192, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." groups=[
 "touchable",
@@ -70,7 +121,42 @@ position = Vector2( 431, 448 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2( -120.248, -19.3407 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
+
+[node name="log11" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( -231.442, -18.9741 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log12" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( -194.142, -18.6592 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log13" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( -157.019, -18.6592 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log14" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( -119.719, -18.6592 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log15" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( -82.4197, -18.6592 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log16" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( -45.2966, -18.6592 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log17" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( -8.51489, -18.6594 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
 
 [node name="RigidBody2D3" parent="." groups=[
 "glueable",
