@@ -14,8 +14,7 @@ class lineSort:
 
 func vecround(vec):
 	return Vector2(round(vec.x/10)*10,round(vec.y/10)*10)
-	
-	
+
 func prepare_glue_button(vectors,buttonNode):
 	var center = (vectors[0] + vectors[1])/2
 	var width = vectors[0].distance_to(vectors[1])
@@ -24,18 +23,19 @@ func prepare_glue_button(vectors,buttonNode):
 	buttonNode.rect_pivot_offset = localcenter
 	buttonNode.rect_global_position = center-localcenter
 	buttonNode.rect_rotation = rad2deg(vectors[0].angle_to_point(vectors[1]))
-	
 
 func sort_two_points(p1,p2):
+	p1 = vecround(p1)
+	p2 = vecround(p2)
 	if p1.x > p2.x:
-		return [vecround(p1),vecround(p2)]
+		return [p1,p2]
 	elif p1.x < p2.x:
-		return [vecround(p2),vecround(p1)]
+		return [p2,p1]
 	else:
 		if p1.y > p2.y:
-			return [vecround(p1),vecround(p2)]
+			return [p1,p2]
 		else:
-			return [vecround(p2),vecround(p1)]
+			return [p2,p1]
 
 func detect_position_overlaps():
 	var glueable = get_tree().get_nodes_in_group("glueable")
@@ -45,6 +45,24 @@ func detect_position_overlaps():
 		for point in range(len(poly)):
 			poly[point] += glueable[p].get_node("GlueablePiece").global_position
 		objects_points.append(poly)
+	$Sprite.position = objects_points[0][0]
+	$Sprite/Label.text = str(round($Sprite.position.x)) + ", " + str(round($Sprite.position.y))
+	$Sprite2.position = objects_points[0][1]
+	$Sprite2/Label.text = str(round($Sprite2.position.x)) + ", " + str(round($Sprite2.position.y))
+	$Sprite3.position = objects_points[0][2]
+	$Sprite3/Label.text = str(round($Sprite3.position.x)) + ", " + str(round($Sprite3.position.y))
+	$Sprite4.position = objects_points[0][3]
+	$Sprite4/Label.text = str(round($Sprite4.position.x)) + ", " + str(round($Sprite4.position.y))
+	$Sprite5.position = objects_points[0][4]
+	$Sprite5/Label.text = str(round($Sprite5.position.x)) + ", " + str(round($Sprite5.position.y))
+	$Sprite6.position = objects_points[1][0]
+	$Sprite6/Label.text = str(round($Sprite6.position.x)) + ", " + str(round($Sprite6.position.y))
+	$Sprite7.position = objects_points[1][1]
+	$Sprite7/Label.text = str(round($Sprite7.position.x)) + ", " + str(round($Sprite7.position.y))
+	$Sprite8.position = objects_points[1][2]
+	$Sprite8/Label.text = str(round($Sprite8.position.x)) + ", " + str(round($Sprite8.position.y))
+	$Sprite9.position = objects_points[1][3]
+	$Sprite9/Label.text = str(round($Sprite9.position.x)) + ", " + str(round($Sprite9.position.y))
 	var lines = []
 	for x in range(len(objects_points)):
 		for y in range(len(objects_points[x])):
@@ -135,3 +153,8 @@ func _on_Tween_tween_completed(object, key):
 	if object.is_in_group("Boulder"):
 		if key == ":modulate:a":
 			object.queue_free()
+
+
+func _on_dbg_pressed():
+	print(sort_two_points(Vector2(610, 380), Vector2(610, 420)))
+	print(sort_two_points(Vector2(610, 420), Vector2(610, 380)))

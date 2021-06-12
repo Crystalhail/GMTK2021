@@ -2,7 +2,13 @@ extends RigidBody2D
 
 export(String) var style
 
-# Called when the node enters the scene tree for the first time.
+func avg(arr):
+	var uwu = Vector2.ZERO
+	for u in arr:
+		uwu += u
+	uwu /= len(arr)
+	return uwu
+
 func _ready():
 	var shape = $Template
 	set_shape(shape.polygon)
@@ -11,9 +17,7 @@ func _ready():
 		$Line2D.queue_free()
 
 func set_shape(shape):
-	$GlueablePiece.polygon = shape
 	$GlueablePiece.position = Vector2.ZERO
-	var smallerShape = PoolVector2Array(Array(shape).duplicate())
 	var minx = 0
 	var maxx = 0
 	var miny = 0
@@ -25,20 +29,20 @@ func set_shape(shape):
 		maxy = max(i.y,maxy)
 	var width = maxx-minx
 	var height = maxy-miny
-#	print(Vector2(width,height))
+	var av = avg(shape)
+	var shape2 = PoolVector2Array(Array(shape).duplicate())
 	for i in range(len(shape)):
-		smallerShape[i] -= Vector2(width,height)/2
-	$GlueablePiece.position -= Vector2(width,height)/2
-	position += Vector2(width,height)/2
+		shape[i] -= av
+		shape2[i] -= Vector2(width,height)/2
+	$GlueablePiece.polygon = shape
 	var s = ConvexPolygonShape2D.new()
-	s.points = smallerShape
+	s.points = shape
 	var so = create_shape_owner(self)
 	shape_owner_add_shape(so,s)
 	global_position = $Template.global_position
-	shape.append(shape[0])
 	if style == "branch":
+		shape.append(shape[0])
 		$Line2D.points = shape
-		$Line2D.position -= Vector2(width,height)/2
 	
 
 var dragging = false
