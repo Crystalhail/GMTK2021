@@ -84,6 +84,10 @@ func _process(delta):
 		for gl in get_tree().get_nodes_in_group("glueable"):
 			gl.gravity_scale=1
 
+func check_win():
+	if boulderCount == 0:
+		print("You win!")
+
 func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2):
 	var pj1 = PinJoint2D.new()
 	obj1.add_child(pj1)
@@ -111,6 +115,7 @@ func goal_body_entered(boulder,goal):
 		$Tween.interpolate_property(boulder,"modulate:a",null,0,0.4,Tween.TRANS_CIRC,Tween.EASE_OUT)
 		$Tween.start()
 		boulderCount -= 1
+		check_win()
 
 
 func _on_Tween_tween_completed(object, key):
