@@ -60,5 +60,4 @@ position = Vector2( 483.558, 280.936 )
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D3"]
 position = Vector2( 15.0946, -120.689 )
-scale = Vector2( 1.50415, 1 )
-polygon = PoolVector2Array( -18.9279, 31.2217, 25.3492, 81.3502, 51.9723, 24.6196, 16.9185, -28.1066 )
+polygon = PoolVector2Array( -18.9279, 31.2217, 25.3492, 81.3502, 115.847, 24.253, 16.9185, -28.1066 )
