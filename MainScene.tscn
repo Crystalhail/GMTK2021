@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Images/branch45.png" type="Texture" id=3]
 [ext_resource path="res://Images/highlighter.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
@@ -14,7 +13,7 @@ extents = Vector2( 40, 40 )
 extents = Vector2( 40, 40 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 135, 18 )
+extents = Vector2( 129.184, 18 )
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -46,50 +45,41 @@ shape = SubResource( 2 )
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 431, 448 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( 431, 448 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 246.355, 98.2213 )
 shape = SubResource( 3 )
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PoolVector2Array( 484, 116, 623, 245, 857, 85, 564, 24, 449.739, 86.7006 )
-width = 40.0
-default_color = Color( 1, 1, 1, 1 )
-texture = ExtResource( 3 )
-texture_mode = 1
-begin_cap_mode = 2
-end_cap_mode = 2
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 431, 448 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( -120.248, -19.3407 )
+shape = SubResource( 3 )
 
 [node name="RigidBody2D3" parent="." groups=[
 "glueable",
 ] instance=ExtResource( 2 )]
-position = Vector2( 483.558, 280.936 )
+position = Vector2( 785.558, 79.936 )
 gravity_scale = 0.0
 can_sleep = false
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D3"]
-position = Vector2( 17.082, -117.96 )
-polygon = PoolVector2Array( -19.29, 30.677, 23.61, 81.3992, 86.1747, 40.232, 34.8577, -11.8342 )
+position = Vector2( 36.0976, 338.919 )
+polygon = PoolVector2Array( -110.789, -7.80142, -163.258, 68.3548, 114.742, 69.3548, 114.503, -100.516, -110.651, -43.0994 )
 
 [node name="RigidBody2D4" parent="." groups=[
 "glueable",
 ] instance=ExtResource( 2 )]
-position = Vector2( 412.125, 181.723 )
+position = Vector2( 284.125, -136.277 )
 gravity_scale = 0.0
 can_sleep = false
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D4"]
-position = Vector2( 14.6378, 31.257 )
-polygon = PoolVector2Array( -4.09494, 18.4636, 34.8611, 72.7772, 96.9853, 31.54, 54.1254, -19.2568 )
-
-[node name="RigidBody2D5" parent="." groups=[
-"glueable",
-] instance=ExtResource( 2 )]
-position = Vector2( 412.125, 181.723 )
-gravity_scale = 0.0
-can_sleep = false
-
-[node name="Template" type="Polygon2D" parent="RigidBody2D5"]
-position = Vector2( 14.6378, 31.257 )
-polygon = PoolVector2Array( 211.877, 67.7967, 158.137, 96.081, 96.9853, 31.54, 160.258, -9.27792 )
+position = Vector2( 139.366, 212.378 )
+polygon = PoolVector2Array( -5.9097, 18.2903, -7.00885, 55.2133, 147.306, 53.6479, 147.587, 18.8515 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
@@ -107,7 +97,8 @@ __meta__ = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Boulder" parent="." instance=ExtResource( 5 )]
-position = Vector2( 164.454, 183.784 )
+position = Vector2( 850.454, 103.784 )
+gravity_scale = 0.0
 
 [node name="Area2D" parent="." instance=ExtResource( 6 )]
 position = Vector2( 123.472, 477.51 )

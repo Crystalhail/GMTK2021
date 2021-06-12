@@ -81,9 +81,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("Retry"):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("dbg_1"):
-		$RigidBody2D3.gravity_scale = 1
-		$RigidBody2D4.gravity_scale = 1
-		$RigidBody2D5.gravity_scale = 1
+		for gl in get_tree().get_nodes_in_group("glueable"):
+			gl.gravity_scale=1
 
 func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2):
 	var pj1 = PinJoint2D.new()
