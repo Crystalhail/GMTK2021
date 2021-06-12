@@ -127,12 +127,17 @@ func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2):
 	pj1.node_a = pj1.get_path_to(obj1)
 	pj1.node_b = pj1.get_path_to(obj2)
 	pj1.global_position=point1
+	
 	var pj2 = PinJoint2D.new()
 	obj2.add_child(pj2)
 	pj2.softness=2
 	pj2.node_a = pj2.get_path_to(obj2)
 	pj2.node_b = pj2.get_path_to(obj1)
 	pj2.global_position=point2
+	
+	var line = Line2D.new()
+	pj1.add_child(line)
+	line.points = [Vector2(0,0),pj2.global_position-pj1.global_position]
 
 func goal_body_entered(boulder,goal):
 	#boulder = boulder.get_parent()
