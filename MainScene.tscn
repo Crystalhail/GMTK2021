@@ -64,7 +64,7 @@ gravity_scale = 0.0
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D3"]
 position = Vector2( 17.082, -117.96 )
-polygon = PoolVector2Array( -19.29, 30.677, 23.61, 81.3992, 115.847, 24.253, 16.9185, -28.1066 )
+polygon = PoolVector2Array( -19.29, 30.677, 23.61, 81.3992, 86.1747, 40.232, 34.8577, -11.8342 )
 
 [node name="RigidBody2D4" parent="." groups=[
 "glueable",
@@ -74,29 +74,18 @@ gravity_scale = 0.0
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D4"]
 position = Vector2( 15.0946, 31.1141 )
-polygon = PoolVector2Array( -18.9279, 31.2217, 25.1216, 80.7173, 96.9853, 31.54, 54.1254, -19.2568 )
-
-[node name="RigidBody2D5" parent="." groups=[
-"glueable",
-] instance=ExtResource( 2 )]
-position = Vector2( 412.125, 181.723 )
-gravity_scale = 0.0
-
-[node name="Template" type="Polygon2D" parent="RigidBody2D5"]
-position = Vector2( 16.0946, 30.4891 )
-polygon = PoolVector2Array( -2.59048, -80.0137, -19.5419, -39.7541, 53.2804, -18.8063, 89.5828, -77.3651 )
-
-[node name="RigidBody2D6" parent="." groups=[
-"glueable",
-] instance=ExtResource( 2 )]
-position = Vector2( 548.35, 275.904 )
-gravity_scale = 0.0
-
-[node name="Template" type="Polygon2D" parent="RigidBody2D6"]
-position = Vector2( 47.9792, -34.4483 )
-polygon = PoolVector2Array( 277.828, -95.3552, -78.5716, -106.423, 20.1857, -54.1892, 286.068, -35.4229 )
+polygon = PoolVector2Array( -4.09494, 18.4636, 34.8611, 72.7772, 96.9853, 31.54, 54.1254, -19.2568 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
 
-[node name="Line2D2" type="Line2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="button" type="Button" parent="CanvasLayer"]
+margin_left = 17.1669
+margin_top = -23.5503
+margin_right = 177.167
+margin_bottom = -3.55034
+__meta__ = {
+"_edit_use_anchors_": false
+}

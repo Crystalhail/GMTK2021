@@ -12,6 +12,17 @@ class lineSort:
 
 func vecround(vec):
 	return Vector2(round(vec.x/5)*5,round(vec.y/5)*5)
+	
+	
+func prepare_glue_button(vectors,buttonNode):
+	print(vectors)
+	var center = (vectors[0] + vectors[1])/2
+	var width = vectors[0].distance_to(vectors[1])
+	buttonNode.rect_size.x = width
+	buttonNode.rect_pivot_offset = buttonNode.rect_size/2
+	buttonNode.rect_global_position = center
+	buttonNode.rect_rotation = rad2deg(vectors[0].angle_to(vectors[1]))
+	
 
 func sort_two_points(p1,p2):
 	if p1.x > p2.x:
@@ -44,8 +55,8 @@ func detect_position_overlaps():
 			glueables.append([dupe,dupeLine])
 		dupe = dupeLine
 	for g in glueables:
-		get_children()[-1].points = PoolVector2Array([g[0][0][0], g[0][0][1]])
-		add_child(get_children()[-1].duplicate())
+		prepare_glue_button(PoolVector2Array([g[0][0][0], g[0][0][1]]),$CanvasLayer.get_children()[-1])
+		$CanvasLayer.add_child($CanvasLayer.get_children()[-1].duplicate())
 	return glueables
 	
 	
@@ -69,14 +80,3 @@ func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2):
 	pj2.node_a = obj2
 	pj2.node_b = obj1
 	obj2.add_child(pj2)
-
-
-
-
-
-
-
-
-
-
-
