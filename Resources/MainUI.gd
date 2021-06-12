@@ -49,3 +49,7 @@ func Levels_Go_Back():
 	
 func play_level(n):
 	pass
+
+
+func ExitButtonPressed():
+	get_tree().quit()
