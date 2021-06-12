@@ -43,6 +43,7 @@ func detect_position_overlaps():
 	for p in range(len(glueable)):
 		var poly = glueable[p].get_node("GlueablePiece").polygon
 		for point in range(len(poly)):
+			poly[point] = poly[point].rotated(deg2rad(glueable[p].rotation_degrees))
 			poly[point] += glueable[p].get_node("GlueablePiece").global_position
 		objects_points.append(poly)
 	$Sprite.position = objects_points[0][0]
