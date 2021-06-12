@@ -44,3 +44,30 @@ func set_shape(shape):
 	$Line2D.points = shape
 	$Line2D.position -= Vector2(width,height)/2
 	
+
+var dragging = false
+var dragorigin = true
+
+func _process(delta):
+	if !Input.is_action_pressed("MouseDown"):
+		self.dragging=false
+		Global.dragging_something=false
+	if Input.is_action_just_pressed("MouseDown"):
+		print("md!")
+		if !Global.dragging_something:
+			if hover:
+				Global.dragging_something = true
+				self.dragorigin=get_local_mouse_position()
+				self.dragging = true
+	if self.dragging:
+		self.mode=RigidBody2D.MODE_KINEMATIC
+		self.position+=get_local_mouse_position()-dragorigin
+	else:
+		self.mode=RigidBody2D.MODE_RIGID
+
+var hover = false
+
+func _on_RigidBody2D_mouse_entered():
+	hover = true
+func _on_RigidBody2D_mouse_exited():
+	hover = false

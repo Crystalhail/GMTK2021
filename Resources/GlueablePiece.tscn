@@ -15,3 +15,6 @@ polygon = PoolVector2Array( 0, 0, 50, 0, 50, 50, 0, 50 )
 default_color = Color( 1, 1, 1, 1 )
 texture = ExtResource( 2 )
 texture_mode = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_RigidBody2D_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_RigidBody2D_mouse_exited"]
