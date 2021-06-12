@@ -13,7 +13,7 @@ class lineSort:
 		return v2i(a[0]) > v2i(b[0])
 
 func vecround(vec):
-	return Vector2(floor(vec.x/10)*10,floor(vec.y/10)*10)
+	return Vector2(round(vec.x/10)*10,round(vec.y/10)*10)
 	
 	
 func prepare_glue_button(vectors,buttonNode):
