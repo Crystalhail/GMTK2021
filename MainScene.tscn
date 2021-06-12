@@ -61,6 +61,7 @@ end_cap_mode = 2
 ] instance=ExtResource( 2 )]
 position = Vector2( 483.558, 280.936 )
 gravity_scale = 0.0
+can_sleep = false
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D3"]
 position = Vector2( 17.082, -117.96 )
@@ -71,21 +72,34 @@ polygon = PoolVector2Array( -19.29, 30.677, 23.61, 81.3992, 86.1747, 40.232, 34.
 ] instance=ExtResource( 2 )]
 position = Vector2( 412.125, 181.723 )
 gravity_scale = 0.0
+can_sleep = false
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D4"]
-position = Vector2( 15.0946, 31.1141 )
+position = Vector2( 14.6378, 31.257 )
 polygon = PoolVector2Array( -4.09494, 18.4636, 34.8611, 72.7772, 96.9853, 31.54, 54.1254, -19.2568 )
+
+[node name="RigidBody2D5" parent="." groups=[
+"glueable",
+] instance=ExtResource( 2 )]
+position = Vector2( 412.125, 181.723 )
+gravity_scale = 0.0
+can_sleep = false
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D5"]
+position = Vector2( 14.6378, 31.257 )
+polygon = PoolVector2Array( 211.877, 67.7967, 158.137, 96.081, 96.9853, 31.54, 160.258, -9.27792 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="button" type="Button" parent="CanvasLayer"]
+[node name="button" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0.560784 )
 margin_left = 17.1669
 margin_top = -23.5503
 margin_right = 177.167
-margin_bottom = -3.55034
+margin_bottom = -3.5503
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
