@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Images/branch45.png" type="Texture" id=3]
+[ext_resource path="res://Images/highlighter.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 40 )
@@ -55,9 +56,45 @@ texture_mode = 1
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="RigidBody2D3" parent="." instance=ExtResource( 2 )]
+[node name="RigidBody2D3" parent="." groups=[
+"glueable",
+] instance=ExtResource( 2 )]
 position = Vector2( 483.558, 280.936 )
+gravity_scale = 0.0
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D3"]
-position = Vector2( 15.0946, -120.689 )
-polygon = PoolVector2Array( -18.9279, 31.2217, 25.3492, 81.3502, 115.847, 24.253, 16.9185, -28.1066 )
+position = Vector2( 17.082, -117.96 )
+polygon = PoolVector2Array( -19.29, 30.677, 23.61, 81.3992, 115.847, 24.253, 16.9185, -28.1066 )
+
+[node name="RigidBody2D4" parent="." groups=[
+"glueable",
+] instance=ExtResource( 2 )]
+position = Vector2( 412.125, 181.723 )
+gravity_scale = 0.0
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D4"]
+position = Vector2( 15.0946, 31.1141 )
+polygon = PoolVector2Array( -18.9279, 31.2217, 25.1216, 80.7173, 96.9853, 31.54, 54.1254, -19.2568 )
+
+[node name="RigidBody2D5" parent="." groups=[
+"glueable",
+] instance=ExtResource( 2 )]
+position = Vector2( 412.125, 181.723 )
+gravity_scale = 0.0
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D5"]
+position = Vector2( 16.0946, 30.4891 )
+polygon = PoolVector2Array( -2.59048, -80.0137, -19.5419, -39.7541, 53.1554, -19.0875, 89.5828, -77.3651 )
+
+[node name="RigidBody2D6" parent="." groups=[
+"glueable",
+] instance=ExtResource( 2 )]
+position = Vector2( 412.125, 181.723 )
+gravity_scale = 0.0
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D6"]
+position = Vector2( 17.2865, 29.5621 )
+polygon = PoolVector2Array( 277.828, -95.3552, 163.956, -111.837, 187.18, -24.1856, 286.068, -35.4229 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )

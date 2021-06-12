@@ -10,6 +10,7 @@ extends RigidBody2D
 func _ready():
 	var shape = get_children()[1]
 	set_shape(shape.polygon)
+	$Template.modulate.a = 0 
 
 func set_shape(shape):
 	$GlueablePiece.polygon = shape
@@ -38,5 +39,6 @@ func set_shape(shape):
 	s.points = smallerShape
 	var so = create_shape_owner(self)
 	shape_owner_add_shape(so,s)
+	global_position = $Template.global_position
 	
 	
