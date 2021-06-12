@@ -63,3 +63,6 @@ func _on_Tween_tween_completed(object, key):
 	if object == $Levels and key == ":rect_global_position:x":
 		for b in $Levels/Levelgrid.get_children():
 			b.mouse_filter = 0
+
+func Credits_GoBack():
+	pass # Replace with function body.

@@ -48,6 +48,7 @@ func detect_position_overlaps():
 		add_child(get_children()[-1].duplicate())
 	
 	
+	
 func _ready():
 	detect_position_overlaps()
 

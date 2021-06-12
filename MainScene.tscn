@@ -94,7 +94,7 @@ gravity_scale = 0.0
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D6"]
 position = Vector2( 47.9792, -34.4483 )
-polygon = PoolVector2Array( 277.828, -95.3552, -78.8006, -105.999, 20.0048, -54.704, 286.068, -35.4229 )
+polygon = PoolVector2Array( 277.828, -95.3552, -78.5716, -106.423, 20.1857, -54.1892, 286.068, -35.4229 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
