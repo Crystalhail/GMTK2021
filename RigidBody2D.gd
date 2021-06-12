@@ -1,16 +1,14 @@
 extends RigidBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+export(String) var style
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var shape = $Template
 	set_shape(shape.polygon)
 	$Template.modulate.a = 0 
+	if style != "branch":
+		$Line2D.queue_free()
 
 func set_shape(shape):
 	$GlueablePiece.polygon = shape
@@ -28,10 +26,7 @@ func set_shape(shape):
 	var width = maxx-minx
 	var height = maxy-miny
 #	print(Vector2(width,height))
-	var off = Vector2(width,height)*0.05 #0.05 is half of 1-0.9
 	for i in range(len(shape)):
-		smallerShape[i] *= 0.9
-		smallerShape[i] += off
 		smallerShape[i] -= Vector2(width,height)/2
 	$GlueablePiece.position -= Vector2(width,height)/2
 	position += Vector2(width,height)/2
@@ -41,8 +36,9 @@ func set_shape(shape):
 	shape_owner_add_shape(so,s)
 	global_position = $Template.global_position
 	shape.append(shape[0])
-	$Line2D.points = shape
-	$Line2D.position -= Vector2(width,height)/2
+	if style == "branch":
+		$Line2D.points = shape
+		$Line2D.position -= Vector2(width,height)/2
 	
 
 var dragging = false
@@ -78,3 +74,4 @@ func _on_RigidBody2D_mouse_entered():
 #	print("hov")
 func _on_RigidBody2D_mouse_exited():
 	hover = false
+

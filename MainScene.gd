@@ -68,10 +68,24 @@ func detect_position_overlaps():
 			g[0][0][1]
 			])
 	return glueables
-	
-	
-	
+
+func editmode():
+	Global.play_mode = false
+	for gl in get_tree().get_nodes_in_group("glueable"):
+		gl.collision_mask = 0
+		gl.collision_layer = 2
+
+func playmode():
+	Global.play_mode = true
+	for gl in get_tree().get_nodes_in_group("glueable"):
+		gl.collision_mask = 1
+		gl.collision_layer = 1
+		gl.gravity_scale=1
+	for bl in get_tree().get_nodes_in_group("Boulder"):
+		bl.gravity_scale = 1
+
 func _ready():
+	editmode()
 	boulderCount = len(get_tree().get_nodes_in_group("Boulder"))
 	for goal in get_tree().get_nodes_in_group("GoalPost"):
 		goal.connect("body_entered",self,"goal_body_entered",[goal])
@@ -81,8 +95,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("Retry"):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("dbg_1"):
-		for gl in get_tree().get_nodes_in_group("glueable"):
-			gl.gravity_scale=1
+		playmode()
 
 func check_win():
 	if boulderCount == 0:
