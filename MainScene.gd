@@ -76,7 +76,8 @@ func _ready():
 func _process(delta):
 	detect_position_overlaps()
 	if Input.is_action_just_pressed("Retry"):
-		#get_tree().reload_current_scene()
+		get_tree().reload_current_scene()
+	if Input.is_action_just_pressed("dbg_1"):
 		$RigidBody2D3.gravity_scale = 1
 		$RigidBody2D4.gravity_scale = 1
 		$RigidBody2D5.gravity_scale = 1
