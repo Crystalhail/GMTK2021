@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Images/branch45.png" type="Texture" id=3]
 [ext_resource path="res://Images/highlighter.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 40 )
@@ -103,3 +105,13 @@ __meta__ = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Boulder" parent="." instance=ExtResource( 5 )]
+position = Vector2( 164.454, 183.784 )
+
+[node name="Area2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 123.472, 477.51 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
