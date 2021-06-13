@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Images/StoneBlock.png" type="Texture" id=3]
-[ext_resource path="res://Audio/stickydrumz_.wav" type="AudioStream" id=4]
 [ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/OnScreenUI.tscn" type="PackedScene" id=7]
@@ -223,11 +222,6 @@ contacts_reported = 1
 position = Vector2( 805.316, 527.964 )
 
 [node name="Tween" type="Tween" parent="."]
-
-[node name="bgMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -7.0
-autoplay = true
 
 [node name="OnScreenUI" parent="." instance=ExtResource( 7 )]
 

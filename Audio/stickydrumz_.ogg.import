@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stickydrumz_.ogg-b59195067a0b086aa92eadbd6319aa7a.oggstr"
+
+[deps]
+
+source_file="res://Audio/stickydrumz_.ogg"
+dest_files=[ "res://.import/stickydrumz_.ogg-b59195067a0b086aa92eadbd6319aa7a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
