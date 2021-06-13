@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Images/noteSquare.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/FingerPaint-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Images/gluestrand.png" type="Texture" id=3]
 [ext_resource path="res://Resources/StandardFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Images/gluestrandbg.png" type="Texture" id=5]
+[ext_resource path="res://Images/glue.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 49
@@ -129,16 +130,15 @@ __meta__ = {
 [node name="gluebar" type="TextureProgress" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -246.0
+margin_left = -294.0
 margin_top = 16.0
-margin_right = 216.0
+margin_right = 168.0
 margin_bottom = 72.0
 rect_scale = Vector2( 0.5, 0.5 )
 max_value = 2.0
 value = 2.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 3 )
-fill_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -152,6 +152,22 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "remaining glue: "
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureRect" parent="gluebar"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -495.982
+margin_top = -72.027
+margin_right = -422.982
+margin_bottom = 3.973
+rect_rotation = 230.0
+rect_scale = Vector2( -2, -2 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }

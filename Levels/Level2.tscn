@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/OnScreenUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Images/placehold.png" type="Texture" id=8]
+[ext_resource path="res://Images/semiTree.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 185, 18 )
@@ -26,6 +28,18 @@ corner_radius_bottom_left = 3
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
 Glue_Max = 1
+
+[node name="bg" type="Sprite" parent="."]
+modulate = Color( 0.439216, 0.439216, 0.439216, 1 )
+position = Vector2( 512, 308 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 8 )
+
+[node name="tree" type="Sprite" parent="."]
+modulate = Color( 0.321569, 0.321569, 0.321569, 1 )
+position = Vector2( 87.9999, 300 )
+scale = Vector2( 0.404, 0.404 )
+texture = ExtResource( 9 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." groups=[
 "touchable",
