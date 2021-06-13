@@ -95,7 +95,7 @@ can_sleep = false
 style = "branch"
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D9"]
-polygon = PoolVector2Array( -220, 69, 54, 69, 54, 32, -220, 32 )
+polygon = PoolVector2Array( -220, 69, 54, 69, 54, 32, -236, 32 )
 
 [node name="RigidBody2D8" parent="." groups=[
 "glueable",
@@ -109,7 +109,7 @@ can_sleep = false
 style = "branch"
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D8"]
-polygon = PoolVector2Array( -220, 69, -180, 69, -180, 32, -182, 32, -182, 5, -220, 5 )
+polygon = PoolVector2Array( -220, 69, -166, 69, -182, 32, -182, 5, -220, 5 )
 
 [node name="button" type="Button" parent="."]
 margin_left = 17.1669

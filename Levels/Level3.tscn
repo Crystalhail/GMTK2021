@@ -162,7 +162,7 @@ polygon = PoolVector2Array( -422, -1, -422, -76, -304, -76, -304, -1 )
 "glueable",
 "touchable",
 ] instance=ExtResource( 2 )]
-position = Vector2( 636, 70 )
+position = Vector2( 752, 251 )
 collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
@@ -170,7 +170,8 @@ can_sleep = false
 style = "branch"
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D10"]
-polygon = PoolVector2Array( -433, 19, -433, -76, -315, -76, -315, -24, -361, -24, -361, 18 )
+position = Vector2( 0, -1 )
+polygon = PoolVector2Array( -482, 18, -482, -76, -433, -76, -361, -24, -361, 18 )
 
 [node name="RigidBody2D8" parent="." groups=[
 "glueable",
@@ -190,7 +191,7 @@ polygon = PoolVector2Array( -466, -1, -466, -115, -315.988, -1 )
 "glueable",
 "touchable",
 ] instance=ExtResource( 2 )]
-position = Vector2( 763, 498 )
+position = Vector2( 785, 460 )
 collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
@@ -198,7 +199,7 @@ can_sleep = false
 style = "branch"
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D9"]
-polygon = PoolVector2Array( -423, -24, -423, -76, 12, -76, 12, -24 )
+polygon = PoolVector2Array( -423, -24, -495, -76, 12, -76, 12, -24 )
 
 [node name="button" type="Button" parent="."]
 margin_left = 17.1669

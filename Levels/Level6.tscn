@@ -1,24 +1,24 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Images/snow.png" type="Texture" id=3]
 [ext_resource path="res://Audio/stickydrumz_.wav" type="AudioStream" id=4]
 [ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Images/squirrel2.png" type="Texture" id=6]
 [ext_resource path="res://Resources/OnScreenUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Images/IceCube.png" type="Texture" id=8]
 
-[sub_resource type="PhysicsMaterial" id=4]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.2
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 161.999, 27.221 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 161.999, 27.221 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 161.999, 27.221 )
+
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 border_width_left = 2
 border_width_top = 2
@@ -29,6 +29,9 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 24.9939
 
 [node name="MainScene2" type="Node2D"]
 script = ExtResource( 1 )
@@ -44,13 +47,13 @@ texture = ExtResource( 3 )
 "touchable",
 ]]
 position = Vector2( 280.001, 313.607 )
-physics_material_override = SubResource( 4 )
+physics_material_override = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Platform"]
 position = Vector2( -27.7998, 0 )
@@ -86,13 +89,13 @@ texture = ExtResource( 8 )
 "touchable",
 ]]
 position = Vector2( 741.043, 313.607 )
-physics_material_override = SubResource( 4 )
+physics_material_override = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Platform2"]
 position = Vector2( -27.7998, 0 )
@@ -173,7 +176,7 @@ margin_left = 17.1669
 margin_top = -23.5503
 margin_right = 177.167
 margin_bottom = -3.5503
-custom_styles/normal = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -185,8 +188,17 @@ position = Vector2( 502.738, 39.2599 )
 gravity_scale = 0.0
 contacts_reported = 1
 
-[node name="Area2D" parent="." instance=ExtResource( 6 )]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"GoalPost",
+]]
 position = Vector2( 134.458, 238.077 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
 
 [node name="Tween" type="Tween" parent="."]
 
