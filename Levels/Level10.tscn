@@ -119,7 +119,7 @@ texture = ExtResource( 3 )
 [node name="trebuché core2" type="StaticBody2D" parent="." groups=[
 "touchable",
 ]]
-position = Vector2( 603.449, 470.548 )
+position = Vector2( 781.64, 470.548 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -201,7 +201,7 @@ gravity_scale = 0.0
 contacts_reported = 1
 
 [node name="Area2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 652.403, 403.109 )
+position = Vector2( 830.594, 403.109 )
 
 [node name="Tween" type="Tween" parent="."]
 
