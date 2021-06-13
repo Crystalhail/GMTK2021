@@ -38,6 +38,14 @@ func sort_two_points(p1,p2):
 		else:
 			return [p2,p1]
 
+#[(670, 280), (670, 250)] ==  v1
+#[(670, 280), (670, 240)]     v2
+
+
+func glue_bias(v1,v2):
+	if v1 == []:return
+	return (v1[0] - v2[0]).abs().length() < Vector2(10,10).length() and (v1[1] - v2[1]).abs().length() < Vector2(10,10).length()
+
 func detect_position_overlaps():
 	var glueable = get_tree().get_nodes_in_group("glueable")
 	var objects_points = []
@@ -55,8 +63,10 @@ func detect_position_overlaps():
 	var dupe = [[]]
 	var glueables = []
 	for dupeLine in lines:
-		if dupe[0] == dupeLine[0]:
-			glueables.append([dupe,dupeLine])
+		#yield(get_tree().create_timer(3),"timeout")
+		if dupe[0] == dupeLine[0] or glue_bias(dupe[0],dupeLine[0]):
+			if not ([dupe[1],dupe[2]] in glued or [dupeLine[1],dupeLine[2]] in glued):
+				glueables.append([dupe,dupeLine])
 		dupe = dupeLine
 	for bt in $CanvasLayer.get_children():
 		bt.queue_free()

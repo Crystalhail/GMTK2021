@@ -148,8 +148,53 @@ can_sleep = false
 style = "branch"
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D3"]
-position = Vector2( 11.442, 187.064 )
-polygon = PoolVector2Array( -110.789, -7.80142, -163.258, 68.3548, 114.742, 69.3548, 114.503, -100.516, -110.651, -43.0994 )
+position = Vector2( -528.145, 14.4431 )
+polygon = PoolVector2Array( -110, 70, 110, 70, 110, -7 )
+
+[node name="RigidBody2D7" parent="." groups=[
+"glueable",
+"touchable",
+] instance=ExtResource( 2 )]
+position = Vector2( 785.558, 79.936 )
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+style = "branch"
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D7"]
+position = Vector2( -595.95, 236.93 )
+polygon = PoolVector2Array( -110, 70, 110, 70, 110, -30 )
+
+[node name="RigidBody2D6" parent="." groups=[
+"glueable",
+"touchable",
+] instance=ExtResource( 2 )]
+position = Vector2( 785.558, 79.936 )
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+style = "branch"
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D6"]
+position = Vector2( -527.169, 89.6443 )
+polygon = PoolVector2Array( -110, -7, -110, 70, 110, -7 )
+
+[node name="RigidBody2D5" parent="." groups=[
+"glueable",
+"touchable",
+] instance=ExtResource( 2 )]
+position = Vector2( 785.558, 79.936 )
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+style = "branch"
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D5"]
+position = Vector2( 6.67979, 185.08 )
+polygon = PoolVector2Array( -110, -7, -110, -44, 150, -44, 110, -7 )
 
 [node name="RigidBody2D4" parent="." groups=[
 "glueable",
@@ -164,7 +209,7 @@ style = "branch"
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D4"]
 position = Vector2( 158.493, 228.178 )
-polygon = PoolVector2Array( -6.57538, 35.5423, -3.9057, 72.2504, 145.181, 70.9383, 144.929, 34.2074 )
+polygon = PoolVector2Array( -7, 35, -7, 75, 150, 75, 150, 35 )
 
 [node name="button" type="Button" parent="."]
 margin_left = 17.1669
@@ -179,7 +224,7 @@ __meta__ = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Boulder" parent="." instance=ExtResource( 5 )]
-position = Vector2( 161.277, 209.617 )
+position = Vector2( 870.277, 94.617 )
 gravity_scale = 0.0
 contacts_reported = 1
 
