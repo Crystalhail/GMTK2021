@@ -33,7 +33,7 @@ func set_shape(shape):
 	var shape2 = PoolVector2Array(Array(shape).duplicate())
 	for i in range(len(shape)):
 		shape[i] -= av
-		shape2[i] -= Vector2(width,height)/2
+		shape2[i] -= Vector2(width,height)
 	$GlueablePiece.polygon = shape
 	var s = ConvexPolygonShape2D.new()
 	s.points = shape

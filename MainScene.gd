@@ -92,6 +92,8 @@ func editmode():
 
 func playmode():
 	Global.play_mode = true
+	for bt in $CanvasLayer.get_children():
+		bt.queue_free()
 	$OnScreenUI/Play.hide()
 	for gl in get_tree().get_nodes_in_group("glueable"):
 		gl.collision_mask = 1
@@ -99,9 +101,14 @@ func playmode():
 		gl.gravity_scale=1
 	for bl in get_tree().get_nodes_in_group("Boulder"):
 		bl.gravity_scale = 1
+	for bl in get_tree().get_nodes_in_group("PhysicsAffected"):
+		bl.gravity_scale = 1
 
 func _ready():
 	Global.glue_left = Glue_Max
+	$OnScreenUI/gluebar.max_value = Glue_Max
+	$OnScreenUI/gluebar.value = Glue_Max
+	$OnScreenUI/gluebar/remaining.text = "remaining glue: " + str($OnScreenUI/gluebar.value)
 	editmode()
 	boulderCount = len(get_tree().get_nodes_in_group("Boulder"))
 	for goal in get_tree().get_nodes_in_group("GoalPost"):
@@ -133,6 +140,7 @@ func to_menu():
 	get_tree().change_scene("res://Resources/MainUI.tscn")
 
 func next_level():
+	Global.attempts = 0
 	Global.opened_level += 1
 	get_tree().change_scene("res://Levels/Level" + str(Global.opened_level) + ".tscn")
 
@@ -143,13 +151,15 @@ func check_win():
 		var winscreen = load("res://Resources/WinScreen.tscn").instance()
 		if Global.opened_level == Global.level_count: winscreen.has_no_next()
 		$OnScreenUI.add_child_below_node($OnScreenUI/gluebar,winscreen)
-		winscreen.get_node("Retry").connect("pressed",self,"reset_level")
+		winscreen.get_node("Retry").connect("pressed",self,"reset_level",[true])
 		winscreen.get_node("BackButton").connect("pressed",self,"to_menu")
+		winscreen.get_node("NextButton").connect("pressed",self,"next_level")
 
 func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2,fixate):
 	if Global.glue_left == 0: return
 	Global.glue_left -= 1
 	$OnScreenUI/gluebar.value = Global.glue_left
+	$OnScreenUI/gluebar/remaining.text = "remaining glue: " + str($OnScreenUI/gluebar.value) 	
 	glued.append(fixate)
 	var pj1 = PinJoint2D.new()
 	obj1.add_child(pj1)
