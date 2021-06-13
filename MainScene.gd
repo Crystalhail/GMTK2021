@@ -122,6 +122,9 @@ func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2,fixate):
 	pj2.global_position=point2
 	
 	var line = Line2D.new()
+	line.texture = load("res://Images/gluestrand.png")
+	line.default_color = Color.white
+	line.texture_mode = Line2D.LINE_TEXTURE_STRETCH
 	pj1.add_child(line)
 	line.points = [Vector2(0,0),pj2.global_position-pj1.global_position]
 
