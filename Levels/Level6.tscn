@@ -1,0 +1,188 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://MainScene.gd" type="Script" id=1]
+[ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Images/StoneBlock.png" type="Texture" id=3]
+[ext_resource path="res://Audio/stickydrumz_.wav" type="AudioStream" id=4]
+[ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Resources/OnScreenUI.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 161.999, 27.221 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 161.999, 27.221 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.992157, 1, 0.364706, 0.815686 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource( 1 )
+Glue_Max = 1
+
+[node name="Platform" type="StaticBody2D" parent="." groups=[
+"touchable",
+]]
+position = Vector2( 280.001, 313.607 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Platform"]
+position = Vector2( -27.7998, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Platform"]
+position = Vector2( -81.0498, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="Platform"]
+position = Vector2( -134.55, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite7" type="Sprite" parent="Platform"]
+position = Vector2( 133.4, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite8" type="Sprite" parent="Platform"]
+position = Vector2( 80.15, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite9" type="Sprite" parent="Platform"]
+position = Vector2( 26.6504, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Platform2" type="StaticBody2D" parent="." groups=[
+"touchable",
+]]
+position = Vector2( 741.043, 313.607 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Platform2"]
+position = Vector2( -27.7998, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Platform2"]
+position = Vector2( -81.0498, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="Platform2"]
+position = Vector2( -134.55, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite7" type="Sprite" parent="Platform2"]
+position = Vector2( 133.4, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite8" type="Sprite" parent="Platform2"]
+position = Vector2( 80.15, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite9" type="Sprite" parent="Platform2"]
+position = Vector2( 26.6504, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="RigidBody2D7" parent="." groups=[
+"glueable",
+"touchable",
+] instance=ExtResource( 2 )]
+position = Vector2( 161.833, 368.562 )
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+style = "branch"
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D7"]
+polygon = PoolVector2Array( -90.6624, 94.1917, 22.4598, 95.69, 21.1621, 32 )
+
+[node name="RigidBody2D9" parent="." groups=[
+"glueable",
+"touchable",
+] instance=ExtResource( 2 )]
+position = Vector2( 351.729, 103.353 )
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+style = "branch"
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D9"]
+position = Vector2( -189.303, 62.6811 )
+polygon = PoolVector2Array( -210.492, 115.887, -113.102, 115.887, -112.353, 19.9957, -211.142, 17.7751 )
+
+[node name="RigidBody2D11" parent="." groups=[
+"glueable",
+"touchable",
+] instance=ExtResource( 2 )]
+position = Vector2( 809.461, 58.4034 )
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+style = "branch"
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D11"]
+position = Vector2( -189.303, 62.6811 )
+polygon = PoolVector2Array( -210.492, 115.887, -113.102, 115.887, -112.353, 18.4974, -212.74, 22.2431 )
+
+[node name="button" type="Button" parent="."]
+margin_left = 17.1669
+margin_top = -23.5503
+margin_right = 177.167
+margin_bottom = -3.5503
+custom_styles/normal = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Boulder" parent="." instance=ExtResource( 5 )]
+position = Vector2( 502.738, 39.2599 )
+gravity_scale = 0.0
+contacts_reported = 1
+
+[node name="Area2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 134.458, 238.077 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -7.0
+autoplay = true
+
+[node name="OnScreenUI" parent="." instance=ExtResource( 7 )]
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
