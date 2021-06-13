@@ -3,6 +3,8 @@ extends Node2D
 var boulderCount = 0
 var glued = []
 
+export(int) var Glue_Max
+
 class lineSort:
 	static func v2i(vcs):
 		var v1 = vcs[0]
@@ -100,6 +102,7 @@ func playmode():
 		bl.gravity_scale = 1
 
 func _ready():
+	Global.glue_left = Glue_Max
 	editmode()
 	boulderCount = len(get_tree().get_nodes_in_group("Boulder"))
 	for goal in get_tree().get_nodes_in_group("GoalPost"):
@@ -125,6 +128,9 @@ func check_win():
 		print("You win!")
 
 func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2,fixate):
+	if Global.glue_left == 0: return
+	Global.glue_left -= 1
+	$OnScreenUI/gluebar.value = Global.glue_left
 	glued.append(fixate)
 	var pj1 = PinJoint2D.new()
 	obj1.add_child(pj1)
@@ -162,12 +168,10 @@ func goal_body_entered(boulder,goal):
 		boulderCount -= 1
 		check_win()
 
-
 func _on_Tween_tween_completed(object, key):
 	if object.is_in_group("Boulder"):
 		if key == ":modulate:a":
 			object.queue_free()
-
 
 func _on_dbg_pressed():
 	print(sort_two_points(Vector2(610, 380), Vector2(610, 420)))

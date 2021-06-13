@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
@@ -43,8 +43,17 @@ size = 38
 extra_spacing_top = -15
 font_data = ExtResource( 8 )
 
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 0.976471, 0.537255, 1 )
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
+Glue_Max = 6
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
 "touchable",
@@ -113,7 +122,8 @@ texture = ExtResource( 3 )
 [node name="StaticBody2D2" type="StaticBody2D" parent="." groups=[
 "touchable",
 ]]
-position = Vector2( 446, 501 )
+position = Vector2( 446, 524 )
+rotation = -0.0959931
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2( -120.248, -19.3407 )
@@ -247,7 +257,7 @@ gravity_scale = 0.0
 contacts_reported = 1
 
 [node name="Area2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 123.472, 477.51 )
+position = Vector2( 123.472, 517.51 )
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -355,6 +365,24 @@ margin_bottom = -7.0
 custom_fonts/font = ExtResource( 9 )
 text = "X attempts and counting..."
 valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gluebar" type="ProgressBar" parent="OnScreenUI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -49.0
+margin_top = 24.0
+margin_right = 216.0
+margin_bottom = 53.0
+rect_scale = Vector2( -1, 1 )
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
+max_value = 6.0
+step = 1.0
+value = 6.0
+percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
