@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Audio/stickydrumz_.wav" type="AudioStream" id=4]
 [ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Images/noteSquare.png" type="Texture" id=7]
+[ext_resource path="res://Fonts/FingerPaint-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Resources/StandardFont.tres" type="DynamicFont" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 185, 18 )
@@ -24,6 +27,21 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="DynamicFont" id=4]
+size = 49
+extra_spacing_top = -15
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 19
+extra_spacing_top = -15
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 38
+extra_spacing_top = -15
+font_data = ExtResource( 8 )
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -237,5 +255,107 @@ position = Vector2( 123.472, 477.51 )
 stream = ExtResource( 4 )
 volume_db = -7.0
 autoplay = true
+
+[node name="OnScreenUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="TextureButton" parent="OnScreenUI"]
+margin_left = 20.0
+margin_top = 15.0
+margin_right = 120.0
+margin_bottom = 105.0
+rect_min_size = Vector2( 100, 90 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 7 )
+texture_focused = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="OnScreenUI/Reset"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.454902, 0.392157, 0.27451, 1 )
+text = "R"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="OnScreenUI/Reset"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.454902, 0.392157, 0.27451, 1 )
+text = "restart"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="TextureButton" parent="OnScreenUI"]
+margin_left = 132.0
+margin_top = 15.0
+margin_right = 232.0
+margin_bottom = 105.0
+rect_min_size = Vector2( 100, 90 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 7 )
+texture_focused = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="OnScreenUI/Play"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.454902, 0.392157, 0.27451, 1 )
+text = "Spc"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="OnScreenUI/Play"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.454902, 0.392157, 0.27451, 1 )
+text = "play"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="attempts" type="Label" parent="OnScreenUI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -357.0
+margin_top = -45.0
+margin_bottom = -7.0
+custom_fonts/font = ExtResource( 9 )
+text = "X attempts and counting..."
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

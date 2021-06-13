@@ -2,3 +2,5 @@ extends Node
 
 var dragging_something = false
 var play_mode = false
+
+var attempts = 0

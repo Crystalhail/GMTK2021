@@ -91,6 +91,7 @@ func editmode():
 
 func playmode():
 	Global.play_mode = true
+	$OnScreenUI/Play.hide()
 	for gl in get_tree().get_nodes_in_group("glueable"):
 		gl.collision_mask = 1
 		gl.collision_layer = 1
@@ -103,7 +104,15 @@ func _ready():
 	boulderCount = len(get_tree().get_nodes_in_group("Boulder"))
 	for goal in get_tree().get_nodes_in_group("GoalPost"):
 		goal.connect("body_entered",self,"goal_body_entered",[goal])
-
+	Global.attempts += 1
+	if Global.attempts > 1:
+		$OnScreenUI/attempts.text = str(Global.attempts) + " attempts and counting..."
+		$Tween.interpolate_property($OnScreenUI/attempts,"rect_position",Vector2(-357,555),Vector2(10,555),1,Tween.TRANS_CIRC,Tween.EASE_OUT)
+		$Tween.start()
+		yield(get_tree().create_timer(2),"timeout")
+		$Tween.interpolate_property($OnScreenUI/attempts,"rect_position",Vector2(10,555),Vector2(0,700),1,Tween.TRANS_CIRC,Tween.EASE_OUT)
+		$Tween.start()
+		
 func _process(delta):
 	detect_position_overlaps()
 	if Input.is_action_just_pressed("Retry"):
