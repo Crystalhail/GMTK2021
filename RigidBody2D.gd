@@ -52,6 +52,7 @@ func _process(delta):
 	if !Global.play_mode:
 		if !Input.is_action_pressed("MouseDown"):
 			self.dragging=false
+			linear_velocity = Vector2.ZERO
 			Global.dragging_something=false
 		if Input.is_action_just_pressed("MouseDown"):
 			if !Global.dragging_something:
