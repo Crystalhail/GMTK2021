@@ -1,0 +1,182 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://MainScene.gd" type="Script" id=1]
+[ext_resource path="res://Images/cave.png" type="Texture" id=2]
+[ext_resource path="res://Images/StoneBlock.png" type="Texture" id=3]
+[ext_resource path="res://Images/Wall.png" type="Texture" id=4]
+[ext_resource path="res://Resources/OnScreenUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 284.956, 27.221 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 79.8211, 27.221 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.992157, 1, 0.364706, 0.815686 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource( 1 )
+Glue_Max = 3
+
+[node name="bg" type="Sprite" parent="."]
+modulate = Color( 0.439216, 0.439216, 0.439216, 1 )
+position = Vector2( 512, 400 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 2 )
+
+[node name="semiTree" type="Sprite" parent="."]
+modulate = Color( 0.321569, 0.321569, 0.321569, 1 )
+position = Vector2( 28, 300 )
+scale = Vector2( 0.404, 0.404 )
+texture = ExtResource( 4 )
+
+[node name="semiTree2" type="Sprite" parent="."]
+modulate = Color( 0.321569, 0.321569, 0.321569, 1 )
+position = Vector2( 996, 300 )
+scale = Vector2( -0.404, 0.404 )
+texture = ExtResource( 4 )
+
+[node name="trebuché core" type="StaticBody2D" parent="." groups=[
+"touchable",
+]]
+position = Vector2( 282, 338 )
+rotation = 0.785397
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trebuché core"]
+position = Vector2( 3, 0 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="trebuché core"]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="trebuché core"]
+position = Vector2( 53.4283, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="trebuché core"]
+position = Vector2( 106.943, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="trebuché core"]
+position = Vector2( 159.565, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="trebuché core"]
+position = Vector2( 210.32, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite6" type="Sprite" parent="trebuché core"]
+position = Vector2( 262.348, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite7" type="Sprite" parent="trebuché core"]
+position = Vector2( -52.4944, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite8" type="Sprite" parent="trebuché core"]
+position = Vector2( -102.68, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite9" type="Sprite" parent="trebuché core"]
+position = Vector2( -156.194, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite10" type="Sprite" parent="trebuché core"]
+position = Vector2( -208.222, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite11" type="Sprite" parent="trebuché core"]
+position = Vector2( -256.68, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="trebuché core2" type="StaticBody2D" parent="." groups=[
+"touchable",
+]]
+position = Vector2( 603.449, 470.548 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trebuché core2"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="trebuché core2"]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="trebuché core2"]
+position = Vector2( 53.4283, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="trebuché core2"]
+position = Vector2( -53.5676, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="RigidBody2D7" parent="." groups=[
+"glueable",
+"touchable",
+] instance=ExtResource( 7 )]
+position = Vector2( 824.71, 142.595 )
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+style = "branch"
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D7"]
+polygon = PoolVector2Array( -39, 70, 17, 70, 54, 32, -77, 32 )
+
+[node name="button" type="Button" parent="."]
+margin_left = 17.1669
+margin_top = -23.5503
+margin_right = 177.167
+margin_bottom = -3.5503
+custom_styles/normal = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Boulder" parent="." instance=ExtResource( 8 )]
+position = Vector2( 168, 93 )
+gravity_scale = 0.0
+contacts_reported = 1
+
+[node name="Area2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 652.403, 403.109 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="OnScreenUI" parent="." instance=ExtResource( 5 )]
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
