@@ -29,7 +29,7 @@ corner_radius_bottom_left = 3
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
-Glue_Max = 3
+Glue_Max = 2
 
 [node name="bg" type="Sprite" parent="."]
 modulate = Color( 0.439216, 0.439216, 0.439216, 1 )
@@ -154,6 +154,34 @@ style = "branch"
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D7"]
 polygon = PoolVector2Array( -39, 70, 17, 70, 54, 32, -77, 32 )
+
+[node name="RigidBody2D8" parent="." groups=[
+"glueable",
+"touchable",
+] instance=ExtResource( 7 )]
+position = Vector2( 431.292, 149.818 )
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+style = "branch"
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D8"]
+polygon = PoolVector2Array( -39, 70, 17, 70, 54, 32, -77, 32 )
+
+[node name="RigidBody2D9" parent="." groups=[
+"glueable",
+"touchable",
+] instance=ExtResource( 7 )]
+position = Vector2( 576.462, 49.3623 )
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+style = "branch"
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D9"]
+polygon = PoolVector2Array( -40.153, -6.91948, 24.7383, -6.21158, 62.2573, 32.0153, -77, 32 )
 
 [node name="button" type="Button" parent="."]
 margin_left = 17.1669
