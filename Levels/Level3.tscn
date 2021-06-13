@@ -144,20 +144,6 @@ rotation = 1.5708
 scale = Vector2( -0.15, -0.15 )
 texture = ExtResource( 3 )
 
-[node name="RigidBody2D7" parent="." groups=[
-"glueable",
-"touchable",
-] instance=ExtResource( 2 )]
-position = Vector2( 946, 286 )
-collision_layer = 2
-collision_mask = 0
-gravity_scale = 0.0
-can_sleep = false
-style = "branch"
-
-[node name="Template" type="Polygon2D" parent="RigidBody2D7"]
-polygon = PoolVector2Array( -422, -1, -422, -76, -304, -76, -304, -1 )
-
 [node name="RigidBody2D10" parent="." groups=[
 "glueable",
 "touchable",

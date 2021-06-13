@@ -12,10 +12,10 @@ config_version=4
 
 config/name="Glueworld"
 run/main_scene="res://Resources/MainUI.tscn"
-boot_splash/image="res://Images/glue.png"
+boot_splash/image="res://icon.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://Images/glue.png"
+config/icon="res://icon.png"
 
 [autoload]
 
