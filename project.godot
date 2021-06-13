@@ -45,6 +45,7 @@ dbg_1={
 [physics]
 
 common/enable_pause_aware_picking=true
+2d/default_gravity=392
 
 [rendering]
 
