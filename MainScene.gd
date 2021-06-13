@@ -1,6 +1,7 @@
 extends Node2D
 
 var boulderCount = 0
+var glued = []
 
 class lineSort:
 	static func v2i(vcs):
@@ -46,24 +47,6 @@ func detect_position_overlaps():
 			poly[point] = poly[point].rotated(deg2rad(glueable[p].rotation_degrees))
 			poly[point] += glueable[p].get_node("GlueablePiece").global_position
 		objects_points.append(poly)
-	$Sprite.position = objects_points[0][0]
-	$Sprite/Label.text = str(round($Sprite.position.x)) + ", " + str(round($Sprite.position.y))
-	$Sprite2.position = objects_points[0][1]
-	$Sprite2/Label.text = str(round($Sprite2.position.x)) + ", " + str(round($Sprite2.position.y))
-	$Sprite3.position = objects_points[0][2]
-	$Sprite3/Label.text = str(round($Sprite3.position.x)) + ", " + str(round($Sprite3.position.y))
-	$Sprite4.position = objects_points[0][3]
-	$Sprite4/Label.text = str(round($Sprite4.position.x)) + ", " + str(round($Sprite4.position.y))
-	$Sprite5.position = objects_points[0][4]
-	$Sprite5/Label.text = str(round($Sprite5.position.x)) + ", " + str(round($Sprite5.position.y))
-	$Sprite6.position = objects_points[1][0]
-	$Sprite6/Label.text = str(round($Sprite6.position.x)) + ", " + str(round($Sprite6.position.y))
-	$Sprite7.position = objects_points[1][1]
-	$Sprite7/Label.text = str(round($Sprite7.position.x)) + ", " + str(round($Sprite7.position.y))
-	$Sprite8.position = objects_points[1][2]
-	$Sprite8/Label.text = str(round($Sprite8.position.x)) + ", " + str(round($Sprite8.position.y))
-	$Sprite9.position = objects_points[1][3]
-	$Sprite9/Label.text = str(round($Sprite9.position.x)) + ", " + str(round($Sprite9.position.y))
 	var lines = []
 	for x in range(len(objects_points)):
 		for y in range(len(objects_points[x])):
@@ -78,13 +61,15 @@ func detect_position_overlaps():
 	for bt in $CanvasLayer.get_children():
 		bt.queue_free()
 	for g in glueables:
+		if [g[0][1],g[0][2]] in glued: return
 		$CanvasLayer.add_child($button.duplicate())
 		prepare_glue_button(PoolVector2Array([g[0][0][0], g[0][0][1]]),$CanvasLayer.get_children()[-1])
 		$CanvasLayer.get_children()[-1].connect("button_down",self,"glue",[
 			glueable[g[0][1]],
 			glueable[g[1][1]],
 			g[0][0][0],
-			g[0][0][1]
+			g[0][0][1],
+			[g[0][1],g[0][2]]
 			])
 	return glueables
 
@@ -120,7 +105,8 @@ func check_win():
 	if boulderCount == 0:
 		print("You win!")
 
-func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2):
+func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2,fixate):
+	glued.append(fixate)
 	var pj1 = PinJoint2D.new()
 	obj1.add_child(pj1)
 	pj1.softness=2
