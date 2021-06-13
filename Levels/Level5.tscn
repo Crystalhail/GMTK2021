@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/OnScreenUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Images/snow.png" type="Texture" id=8]
+
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.2
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 286.638, 27.221 )
@@ -24,7 +27,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[node name="MainScene" type="Node2D"]
+[node name="MainScene2" type="Node2D"]
 script = ExtResource( 1 )
 Glue_Max = 1
 
@@ -39,6 +42,7 @@ texture = ExtResource( 8 )
 ]]
 position = Vector2( 303.001, 485.607 )
 rotation = 0.523598
+physics_material_override = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hill"]
 shape = SubResource( 1 )
