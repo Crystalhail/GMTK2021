@@ -105,6 +105,12 @@ func playmode():
 		bl.gravity_scale = 1
 
 func _ready():
+	$OnScreenUI/Reset.connect("pressed",self,"reset_level")
+	$OnScreenUI/Play.connect("pressed",self,"playmode")
+	if Global.opened_level == 1:
+		if not Global.tutorial_shown:
+			Global.tutorial_shown = true
+			$TutorialOverlay.show()
 	Global.glue_left = Glue_Max
 	$OnScreenUI/gluebar.max_value = Glue_Max
 	$OnScreenUI/gluebar.value = Glue_Max
@@ -205,3 +211,7 @@ func _on_Tween_tween_completed(object, key):
 func _on_dbg_pressed():
 	print(sort_two_points(Vector2(610, 380), Vector2(610, 420)))
 	print(sort_two_points(Vector2(610, 420), Vector2(610, 380)))
+
+
+func _on_cls_pressed():
+	$TutorialOverlay.hide()

@@ -27,7 +27,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=4]
 radius = 24.9939
 
 [node name="MainScene2" type="Node2D"]
@@ -156,7 +156,7 @@ contacts_reported = 1
 position = Vector2( 505.91, 430.152 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Area2D"]
 scale = Vector2( 0.2, 0.2 )

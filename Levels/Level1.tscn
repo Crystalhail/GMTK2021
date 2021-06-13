@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://Resources/OnScreenUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Images/placehold.png" type="Texture" id=8]
 [ext_resource path="res://Images/semiTree.png" type="Texture" id=9]
+[ext_resource path="res://tutorialslide.png" type="Texture" id=10]
+[ext_resource path="res://Images/noteSquare.png" type="Texture" id=11]
+[ext_resource path="res://Fonts/FingerPaint-Regular.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Resources/StandardFont.tres" type="DynamicFont" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 185, 18 )
@@ -27,6 +31,11 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="DynamicFont" id=4]
+size = 29
+extra_spacing_top = -15
+font_data = ExtResource( 12 )
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -257,4 +266,84 @@ autoplay = true
 
 [node name="OnScreenUI" parent="." instance=ExtResource( 7 )]
 
+[node name="TutorialOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.713726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TutorialOverlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cls" type="TextureButton" parent="TutorialOverlay"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -156.0
+margin_top = -114.0
+margin_right = -56.0
+margin_bottom = -24.0
+rect_min_size = Vector2( 100, 90 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 11 )
+texture_disabled = ExtResource( 11 )
+texture_focused = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TutorialOverlay/cls"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.454902, 0.392157, 0.27451, 1 )
+text = "close"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TutorialOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -235.5
+margin_top = -50.5
+margin_right = 235.5
+margin_bottom = 2.5
+custom_fonts/font = ExtResource( 13 )
+text = "You can glue parts that touch."
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="TutorialOverlay"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -294.5
+margin_top = -53.0
+margin_right = 294.5
+custom_fonts/font = ExtResource( 13 )
+text = "Use glue to help glueworld's inhabitants!"
+align = 1
+valign = 1
+
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="TutorialOverlay/cls" to="." method="_on_cls_pressed"]
