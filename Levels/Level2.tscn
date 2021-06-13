@@ -1,0 +1,310 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://MainScene.gd" type="Script" id=1]
+[ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Images/log.png" type="Texture" id=3]
+[ext_resource path="res://Audio/stickydrumz_.wav" type="AudioStream" id=4]
+[ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Images/noteSquare.png" type="Texture" id=7]
+[ext_resource path="res://Fonts/FingerPaint-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Resources/StandardFont.tres" type="DynamicFont" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 185, 18 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.992157, 1, 0.364706, 0.815686 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="DynamicFont" id=3]
+size = 49
+extra_spacing_top = -15
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 19
+extra_spacing_top = -15
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 38
+extra_spacing_top = -15
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 1, 0.976471, 0.537255, 1 )
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource( 1 )
+Glue_Max = 6
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." groups=[
+"touchable",
+]]
+position = Vector2( 626.593, 169.814 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 241.355, 98.221 )
+shape = SubResource( 1 )
+
+[node name="log" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 75.0728, 97.9063 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log2" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 112.373, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log3" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 149.496, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log4" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 186.795, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log5" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 224.095, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log6" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 261.218, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log7" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 298, 98.221 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log8" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 335.123, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log9" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 372.246, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="log10" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 409.192, 98.2212 )
+scale = Vector2( 0.104492, 0.104492 )
+texture = ExtResource( 3 )
+
+[node name="RigidBody2D6" parent="." groups=[
+"glueable",
+"touchable",
+] instance=ExtResource( 2 )]
+position = Vector2( 785.558, 79.936 )
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+style = "branch"
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D6"]
+position = Vector2( -36.0758, 244.708 )
+scale = Vector2( 1.45232, 1.45232 )
+offset = Vector2( 62.4376, 41 )
+polygon = PoolVector2Array( -110, -7, -110, -75, 25, -7 )
+
+[node name="RigidBody2D7" parent="." groups=[
+"glueable",
+"touchable",
+] instance=ExtResource( 2 )]
+position = Vector2( 785.558, 79.936 )
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+can_sleep = false
+style = "branch"
+
+[node name="Template" type="Polygon2D" parent="RigidBody2D7"]
+position = Vector2( 122.19, 144.961 )
+scale = Vector2( 1.45232, 1.45232 )
+offset = Vector2( 157, 41 )
+polygon = PoolVector2Array( -110, -7, -110, -75, -244, -7 )
+
+[node name="button" type="Button" parent="."]
+margin_left = 17.1669
+margin_top = -23.5503
+margin_right = 177.167
+margin_bottom = -3.5503
+custom_styles/normal = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Boulder" parent="." instance=ExtResource( 5 )]
+position = Vector2( 623.268, 80.617 )
+gravity_scale = 0.0
+contacts_reported = 1
+
+[node name="Boulder2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 419.037, 77.9473 )
+gravity_scale = 0.0
+contacts_reported = 1
+
+[node name="Area2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 211.666, 517.51 )
+
+[node name="Area2D2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 805.316, 527.964 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -7.0
+autoplay = true
+
+[node name="OnScreenUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="TextureButton" parent="OnScreenUI"]
+margin_left = 20.0
+margin_top = 15.0
+margin_right = 120.0
+margin_bottom = 105.0
+rect_min_size = Vector2( 100, 90 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 7 )
+texture_focused = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="OnScreenUI/Reset"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.454902, 0.392157, 0.27451, 1 )
+text = "R"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="OnScreenUI/Reset"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.454902, 0.392157, 0.27451, 1 )
+text = "restart"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="TextureButton" parent="OnScreenUI"]
+margin_left = 132.0
+margin_top = 15.0
+margin_right = 232.0
+margin_bottom = 105.0
+rect_min_size = Vector2( 100, 90 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 7 )
+texture_focused = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="OnScreenUI/Play"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.454902, 0.392157, 0.27451, 1 )
+text = "Spc"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="OnScreenUI/Play"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.454902, 0.392157, 0.27451, 1 )
+text = "play"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="attempts" type="Label" parent="OnScreenUI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -357.0
+margin_top = -45.0
+margin_bottom = -7.0
+custom_fonts/font = ExtResource( 9 )
+text = "X attempts and counting..."
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gluebar" type="ProgressBar" parent="OnScreenUI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -49.0
+margin_top = 24.0
+margin_right = 216.0
+margin_bottom = 53.0
+rect_scale = Vector2( -1, 1 )
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+max_value = 6.0
+step = 1.0
+value = 6.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

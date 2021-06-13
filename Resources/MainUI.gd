@@ -4,6 +4,7 @@ onready var level_button = preload("res://Resources/LevelButton.tscn")
 export(int) var levelCount
 
 func _ready():
+	if OS.get_name() == "HTML5": $Main/Button3.hide()
 	Global.level_count = levelCount
 	for b in get_tree().get_nodes_in_group("hoverableButton"):
 		b.connect("mouse_entered",self,"hover_button",[b])
