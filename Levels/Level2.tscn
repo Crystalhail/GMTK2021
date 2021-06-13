@@ -149,6 +149,47 @@ scale = Vector2( 1.45232, 1.45232 )
 offset = Vector2( 157, 41 )
 polygon = PoolVector2Array( -110, -7, -110, -75, -244, -7 )
 
+[node name="log" type="Sprite" parent="RigidBody2D7"]
+position = Vector2( 174.079, 167.064 )
+scale = Vector2( 0.193428, 0.193428 )
+texture = ExtResource( 3 )
+offset = Vector2( -94.9014, -51.4755 )
+
+[node name="log2" type="Sprite" parent="RigidBody2D7"]
+position = Vector2( 184.361, 117.861 )
+scale = Vector2( 0.0553388, 0.0553388 )
+texture = ExtResource( 3 )
+offset = Vector2( -94.9014, -51.4755 )
+
+[node name="log3" type="Sprite" parent="RigidBody2D7"]
+position = Vector2( 110.668, 176.857 )
+scale = Vector2( 0.128392, 0.128392 )
+texture = ExtResource( 3 )
+offset = Vector2( -94.9014, -51.4755 )
+
+[node name="log4" type="Sprite" parent="RigidBody2D7"]
+position = Vector2( 68.5527, 182.144 )
+scale = Vector2( 0.0883022, 0.0883022 )
+texture = ExtResource( 3 )
+offset = Vector2( -94.9014, -51.4755 )
+
+[node name="Log" type="Polygon2D" parent="RigidBody2D7"]
+visible = false
+position = Vector2( 122.19, 144.961 )
+scale = Vector2( 1.45232, 1.45232 )
+offset = Vector2( 157, 41 )
+texture = ExtResource( 3 )
+polygon = PoolVector2Array( -110, -7, -110, -18.808, -110, -36.1092, -110, -54.9181, -110, -75, -145.405, -60.0473, -174.651, -45.2619, -210.233, -26.0897, -244, -7, -206.975, -7, -169.909, -7, -139.496, -7 )
+uv = PoolVector2Array( 362.457, 408.874, 408.191, 351.536, 422.222, 255.556, 407.407, 149.383, 361.728, 92.5926, 255.556, 69.1358, 151.852, 77.7778, 86.3481, 147.44, 69.1358, 245.679, 79.5222, 340.614, 130.375, 411.945, 245.679, 433.333 )
+
+[node name="Log2" type="Polygon2D" parent="RigidBody2D7"]
+position = Vector2( 27.5319, 181.933 )
+scale = Vector2( 0.356318, 0.356318 )
+offset = Vector2( 157, 41 )
+texture = ExtResource( 3 )
+polygon = PoolVector2Array( -110, -7, -110, -75, -244, -7 )
+uv = PoolVector2Array( 437.826, 219.805, 371.873, 72.6746, 147.892, 349.77 )
+
 [node name="button" type="Button" parent="."]
 margin_left = 17.1669
 margin_top = -23.5503
