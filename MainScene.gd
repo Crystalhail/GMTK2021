@@ -43,7 +43,6 @@ func sort_two_points(p1,p2):
 #[(670, 280), (670, 250)] ==  v1
 #[(670, 280), (670, 240)]     v2
 
-
 func glue_bias(v1,v2):
 	if v1 == []:return
 	return (v1[0] - v2[0]).abs().length() < Vector2(10,10).length() and (v1[1] - v2[1]).abs().length() < Vector2(10,10).length()
@@ -115,17 +114,37 @@ func _ready():
 		yield(get_tree().create_timer(2),"timeout")
 		$Tween.interpolate_property($OnScreenUI/attempts,"rect_position",Vector2(10,555),Vector2(0,700),1,Tween.TRANS_CIRC,Tween.EASE_OUT)
 		$Tween.start()
-		
+
+func reset_level(clear=false):
+	if clear: Global.attempts = 0
+	get_tree().reload_current_scene()
+
 func _process(delta):
-	detect_position_overlaps()
+	if !Global.play_mode: detect_position_overlaps()
 	if Input.is_action_just_pressed("Retry"):
-		get_tree().reload_current_scene()
+		reset_level()
 	if Input.is_action_just_pressed("dbg_1"):
 		playmode()
+	if Input.is_action_just_pressed("let_me_out_of_brazil"):
+		to_menu()
+
+func to_menu():
+	Global.opened_level = 0
+	get_tree().change_scene("res://Resources/MainUI.tscn")
+
+func next_level():
+	Global.opened_level += 1
+	get_tree().change_scene("res://Levels/Level" + str(Global.opened_level) + ".tscn")
 
 func check_win():
 	if boulderCount == 0:
-		print("You win!")
+		yield(get_tree().create_timer(1),"timeout")
+		$OnScreenUI/Reset.hide()
+		var winscreen = load("res://Resources/WinScreen.tscn").instance()
+		if Global.opened_level == Global.level_count: winscreen.has_no_next()
+		$OnScreenUI.add_child_below_node($OnScreenUI/gluebar,winscreen)
+		winscreen.get_node("Retry").connect("pressed",self,"reset_level")
+		winscreen.get_node("BackButton").connect("pressed",self,"to_menu")
 
 func glue(obj1:Node2D,obj2:Node2D,point1:Vector2,point2:Vector2,fixate):
 	if Global.glue_left == 0: return

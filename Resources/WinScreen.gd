@@ -11,7 +11,8 @@ func _ready():
 	yield(get_tree().create_timer(4),"timeout")
 	$Particles2D.emitting = false
 
-
+func has_no_next():
+	$NextButton.hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

@@ -1,17 +1,22 @@
 extends TextureRect
 
 onready var level_button = preload("res://Resources/LevelButton.tscn")
+export(int) var levelCount
 
 func _ready():
+	Global.level_count = levelCount
 	for b in get_tree().get_nodes_in_group("hoverableButton"):
 		b.connect("mouse_entered",self,"hover_button",[b])
 		b.connect("mouse_exited",self,"unhover_button",[b])
-	for level in range(12):
+	for level in range(levelCount):
 		var lev = level_button.instance()
 		lev.name = str(level+1) #IMPORTANT
 		$Levels/Levelgrid.add_child(lev)
 		lev.connect("mouse_entered",self,"hover_level",[lev])
 		lev.connect("pressed",self,"play_level",[level+1])
+	
+	if Global.opened_level != 0:
+		play_level(Global.opened_level)
 
 func hover_button(n):
 	$Main.move_child(n,get_child_count()-1)
@@ -51,6 +56,8 @@ func Levels_Go_Back():
 		b.mouse_filter = 2
 	
 func play_level(n):
+	Global.attempts = 0
+	Global.opened_level = n
 	get_tree().change_scene("res://Levels/Level" + str(n) + ".tscn")
 
 func ExitButtonPressed():
