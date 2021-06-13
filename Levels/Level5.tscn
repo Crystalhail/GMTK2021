@@ -1,21 +1,21 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Images/IceCube.png" type="Texture" id=3]
 [ext_resource path="res://Audio/stickydrumz_.wav" type="AudioStream" id=4]
 [ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Images/squirrel2.png" type="Texture" id=6]
 [ext_resource path="res://Resources/OnScreenUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Images/snow.png" type="Texture" id=8]
 
-[sub_resource type="PhysicsMaterial" id=3]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.2
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 286.638, 27.221 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 border_width_left = 2
 border_width_top = 2
@@ -26,6 +26,9 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 24.9939
 
 [node name="MainScene2" type="Node2D"]
 script = ExtResource( 1 )
@@ -42,10 +45,10 @@ texture = ExtResource( 8 )
 ]]
 position = Vector2( 303.001, 485.607 )
 rotation = 0.523598
-physics_material_override = SubResource( 3 )
+physics_material_override = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hill"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Hill"]
 position = Vector2( -1.33545, -0.267822 )
@@ -114,7 +117,7 @@ can_sleep = false
 style = "branch"
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D7"]
-polygon = PoolVector2Array( -220, 69, 54, 69, 54, 32, 54.0426, 25.5095, 21.1621, 25.5095, 21.1621, 32, -220, 32 )
+polygon = PoolVector2Array( -220, 69, 54, 69, 21.1621, 32, -220, 32 )
 
 [node name="RigidBody2D9" parent="." groups=[
 "glueable",
@@ -128,14 +131,14 @@ can_sleep = false
 style = "branch"
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D9"]
-polygon = PoolVector2Array( -211.285, 122.133, -177.756, 122.092, -177.756, 27.7043, -211.735, 27.7043 )
+polygon = PoolVector2Array( -211.285, 122.133, -177.841, 159.847, -177.756, 27.7043, -211.735, 27.7043 )
 
 [node name="button" type="Button" parent="."]
 margin_left = 17.1669
 margin_top = -23.5503
 margin_right = 177.167
 margin_bottom = -3.5503
-custom_styles/normal = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -147,8 +150,17 @@ position = Vector2( 117, 198 )
 gravity_scale = 0.0
 contacts_reported = 1
 
-[node name="Area2D" parent="." instance=ExtResource( 6 )]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"GoalPost",
+]]
 position = Vector2( 505.91, 430.152 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
 
 [node name="Tween" type="Tween" parent="."]
 
