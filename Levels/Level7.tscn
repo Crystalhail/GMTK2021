@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Resources/GlueablePiece.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Images/IceCube.png" type="Texture" id=3]
 [ext_resource path="res://Audio/stickydrumz_.wav" type="AudioStream" id=4]
 [ext_resource path="res://Resources/Boulder.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Resources/GoalHole.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Images/squirrel2.png" type="Texture" id=6]
 [ext_resource path="res://Resources/OnScreenUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Images/snow.png" type="Texture" id=8]
 [ext_resource path="res://Resources/Weight.tscn" type="PackedScene" id=9]
@@ -15,6 +15,15 @@ friction = 0.2
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 286.638, 27.221 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 80.6247, 27.221 )
+
+[sub_resource type="PhysicsMaterial" id=6]
+friction = 0.2
+
+[sub_resource type="PhysicsMaterial" id=7]
+friction = 0.2
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -27,6 +36,9 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 24.9939
 
 [node name="MainScene2" type="Node2D"]
 script = ExtResource( 1 )
@@ -103,11 +115,79 @@ position = Vector2( 208.484, -0.365967 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 3 )
 
+[node name="Hill2" type="StaticBody2D" parent="." groups=[
+"touchable",
+]]
+position = Vector2( 652.856, 164.969 )
+physics_material_override = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hill2"]
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Hill2"]
+position = Vector2( -1.33545, -0.267822 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Hill2"]
+position = Vector2( -53.7197, -0.767944 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite9" type="Sprite" parent="Hill2"]
+position = Vector2( 51.7488, -0.633911 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Hill3" type="StaticBody2D" parent="." groups=[
+"touchable",
+]]
+position = Vector2( 856.273, 522.008 )
+physics_material_override = SubResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hill3"]
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Hill3"]
+position = Vector2( -1.33545, -0.267822 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Hill3"]
+position = Vector2( -53.7197, -0.767944 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite9" type="Sprite" parent="Hill3"]
+position = Vector2( 51.7488, -0.633911 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Hill4" type="StaticBody2D" parent="." groups=[
+"touchable",
+]]
+position = Vector2( 909.246, 470.095 )
+rotation = 1.57079
+physics_material_override = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hill4"]
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Hill4"]
+position = Vector2( -1.33545, -0.267822 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Hill4"]
+position = Vector2( -53.7197, -0.767944 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
 [node name="RigidBody2D7" parent="." groups=[
 "glueable",
 "touchable",
 ] instance=ExtResource( 2 )]
-position = Vector2( 687, 365 )
+position = Vector2( 162.81, 265.101 )
 collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
@@ -115,21 +195,21 @@ can_sleep = false
 style = "branch"
 
 [node name="Template" type="Polygon2D" parent="RigidBody2D7"]
-polygon = PoolVector2Array( -220, 69, 54, 69, 54, 32, 54.0426, 25.5095, 21.1621, 25.5095, 21.1621, 32, -220, 32 )
+polygon = PoolVector2Array( -220, 69, 54, 69, 54, 32, -110.978, 32.4219 )
 
-[node name="RigidBody2D9" parent="." groups=[
+[node name="RigidBody2D8" parent="." groups=[
 "glueable",
 "touchable",
 ] instance=ExtResource( 2 )]
-position = Vector2( 593.841, 74.1526 )
+position = Vector2( 217.474, 365.381 )
 collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 can_sleep = false
 style = "branch"
 
-[node name="Template" type="Polygon2D" parent="RigidBody2D9"]
-polygon = PoolVector2Array( -211.285, 122.133, -177.756, 122.092, -177.756, 27.7043, -211.735, 27.7043 )
+[node name="Template" type="Polygon2D" parent="RigidBody2D8"]
+polygon = PoolVector2Array( -220, 69, 54, 69, 54, 32, -220, 32 )
 
 [node name="button" type="Button" parent="."]
 margin_left = 17.1669
@@ -152,8 +232,17 @@ contacts_reported = 1
 position = Vector2( 271.073, 120.853 )
 mass = 1.0
 
-[node name="Area2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 505.91, 430.152 )
+[node name="Area2D" type="Area2D" parent="." groups=[
+"GoalPost",
+]]
+position = Vector2( 720.168, 532.786 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
 
 [node name="Tween" type="Tween" parent="."]
 
